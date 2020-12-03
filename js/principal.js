@@ -1,5 +1,5 @@
-// console.log('Carregado de um arquivo externo')
-
+var titulo = document.querySelector('.titulo')
+titulo.textContent = "Aparecida Nutricionista"
 
 var pacientes = document.querySelectorAll('.paciente')
 
@@ -34,12 +34,9 @@ for (var i = 0; i < pacientes.length; i++) {
         var imc = peso / (altura * altura)
         tdImc.textContent = imc.toFixed()
     }
-
 }
 
-
-
-
-// console.log(peso)
-// console.log(altura)
-// console.log(imc)
+var buttom = document.querySelector("#adicionar-paciente")
+buttom.addEventListener('click', function () {
+    console.log('oi')
+})
