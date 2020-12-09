@@ -5,26 +5,28 @@ buttom.addEventListener('click', function (event) {
     //Extraindo informações do paciente do form
     var form = document.querySelector("#form-adiciona")
     var paciente = obtemPacienteForm(form)
-    //criando as tags tr e td do paciente
-    var pacienteTr = montaTr(paciente)
 
     var erros = validaPaciente(paciente)
-
     if (erros.length > 0) {
         exibiMensagensDeErros(erros)
         return;
     }
 
-    //adicionando o paciente na tabela
-    var tabela = document.querySelector("#tabela-pacientes")
-
-    tabela.appendChild(pacienteTr)
+    adicionaPacienteTabela(paciente)
 
     form.reset()
 
     var mensagens = document.querySelector("#mensagens-erro")
     mensagens.innerHTML = ""
 })
+
+function adicionaPacienteTabela(paciente) {
+    //criando as tags tr e td do paciente
+    var pacienteTr = montaTr(paciente)
+    //adicionando o paciente na tabela
+    var tabela = document.querySelector("#tabela-pacientes")
+    tabela.appendChild(pacienteTr)
+}
 
 function exibiMensagensDeErros(erros) {
     var ul = document.querySelector("#mensagens-erro")
@@ -90,8 +92,8 @@ function validaPaciente(paciente) {
         erros.push("Altura não pode ficar em branco")
     }
 
-    if (paciente.gordura.length == 0){
+    if (paciente.gordura.length == 0) {
         erros.push("Gordura não pode ficar em branco")
     }
-        return erros
+    return erros
 }
